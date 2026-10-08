@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1593ff"><title>BLUE FACE STORE 💙</title>
+<style>
+:root{--bg:#05070b;--card:#0d121a;--line:#1b2a3b;--blue:#1593ff;--text:#fff;--muted:#aab8c8;--good:#45d483}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}
+header{position:sticky;top:0;z-index:20;background:rgba(5,7,11,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:14px 5%;display:flex;align-items:center;gap:16px}
+.logo{font-weight:950;font-size:21px;line-height:1.05;white-space:nowrap}.logo span{color:var(--blue)}.tag{font-size:9px;color:#718298;letter-spacing:2px;margin-top:4px}
+nav{display:flex;gap:6px;margin-left:auto}nav a{color:#dce9f7;text-decoration:none;padding:9px 10px;border-radius:9px;font-size:13px}nav a:hover{background:#101b28}
+button{font:inherit}.cartBtn,.primary{border:0;background:var(--blue);color:#fff;font-weight:900;border-radius:11px;padding:11px 14px;cursor:pointer}
+.hero{margin:22px 5%;padding:48px 7%;border:1px solid #14518a;border-radius:24px;background:radial-gradient(circle at 85% 20%,#1176d8 0,#0b2947 34%,#080b10 72%)}
+.kicker{color:#8ed0ff;font-weight:900;letter-spacing:2px;font-size:12px}h1{font-size:clamp(38px,7vw,76px);line-height:.95;margin:12px 0}h1 span{color:var(--blue)}.hero p{color:#cad9e8;max-width:610px;font-size:17px;line-height:1.6}
+.open{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:9px 12px;border-radius:999px;background:rgba(69,212,131,.1);color:#6be49b;font-size:12px;font-weight:800}
+section{padding:18px 5% 35px}.title{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:15px}h2{margin:0;font-size:24px}.muted{color:var(--muted);font-size:13px}
+.search{margin:0 5% 8px}.search input{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#0d121a;color:#fff;outline:none}.search input:focus{border-color:var(--blue)}
+.promo{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:0 5% 20px}.promoBox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}.promoBox b{color:#58b1ff;font-size:18px}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}.cat{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px 8px;text-align:center;cursor:pointer}.cat:hover{border-color:var(--blue);transform:translateY(-2px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-3px);border-color:#2379bf}
+.pic{height:190px;background:linear-gradient(135deg,#101722,#0a3154);display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:60px}.pic img{width:100%;height:100%;object-fit:cover}.info{padding:15px}.catName{font-size:11px;color:#62baff;font-weight:900;text-transform:uppercase;letter-spacing:.6px}.info h3{margin:6px 0 5px;font-size:18px}.price{font-size:20px;font-weight:950;margin:10px 0}.meta{color:var(--muted);font-size:12px;line-height:1.6;min-height:38px}.add{width:100%;margin-top:12px;padding:11px;border:0;border-radius:10px;background:#fff;color:#05070b;font-weight:950;cursor:pointer}.add:hover{background:#dcefff}
+.infoBox{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:20px;line-height:1.7}.infoBox strong{color:#fff}
+footer{padding:38px 5%;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
+.drawer{position:fixed;right:-430px;top:0;width:min(430px,94vw);height:100vh;background:#080c12;border-left:1px solid var(--line);z-index:50;padding:22px;overflow:auto;transition:.25s}.drawer.open{right:0}.close{float:right;border:0;background:none;color:#fff;font-size:28px;cursor:pointer}.item{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.total{font-size:22px;font-weight:950;margin:20px 0}.form input,.form select,.form textarea{width:100%;margin:6px 0;padding:12px;border-radius:9px;border:1px solid var(--line);background:#101722;color:#fff;font:inherit}.form textarea{min-height:70px;resize:vertical}.note{font-size:12px;color:var(--muted);line-height:1.5}
+@media(max-width:800px){header{flex-wrap:wrap}nav{order:3;width:100%;overflow:auto}.promo{grid-template-columns:1fr}.hero{padding:35px 22px}.pic{height:175px}}
+</style></head><body>
+<header><div class="logo">BLUE FACE <span>STORE 💙</span><div class="tag">STYLE • STREETWEAR • PREMIUM</div></div>
+<nav><a href="#categorias">Categorias</a><a href="#produtos">Produtos</a><a href="#info">Como comprar</a></nav>
+<button class="cartBtn" onclick="openCart()">🛒 <span id="count">0</span></button></header>
+<div class="search"><input id="search" placeholder="🔎 Procurar produto, marca ou categoria..." oninput="render()"></div>
+<section class="hero"><div class="kicker">BLUE FACE STORE 💙</div><h1>O teu estilo.<br><span>A tua identidade.</span></h1>
+<p>Streetwear, calçado e acessórios selecionados para o teu look. Encomenda online e paga por M-Pesa ou e-Mola.</p>
+<div class="open">● Aberto todos os dias · 07:30–23:30</div></section>
+<div class="promo">
+<div class="promoBox">🔥 <b>PAGOU 1, LEVA 2</b><br><span class="muted">Promoção em produtos selecionados.</span></div>
+<div class="promoBox">👟🧦 <b>MEIAS GRÁTIS</b><br><span class="muted">Comprou 1 par de sapatos? Ganha 1 par de meias grátis.</span></div>
+<div class="promoBox">💳 <b>M-PESA + E-MOLA</b><br><span class="muted">Pagamento após confirmação da encomenda.</span></div></div>
+<section id="categorias"><div class="title"><h2>🛍️ Categorias</h2><span class="muted">Escolhe uma categoria</span></div><div class="cats" id="cats"></div></section>
+<section id="produtos"><div class="title"><h2>🔥 Catálogo</h2><span class="muted" id="resultCount"></span></div><div class="grid" id="products"></div></section>
+<section id="info"><div class="title"><h2>📦 Como comprar</h2></div><div class="infoBox">
+<strong>1.</strong> Escolhe os produtos e adiciona ao carrinho.<br><strong>2.</strong> Preenche nome, telefone e dados da entrega.<br>
+<strong>3.</strong> Escolhe <strong>M-Pesa</strong> ou <strong>e-Mola</strong>.<br>
+<strong>4.</strong> Faz o pagamento para uma das contas oficiais abaixo:<br>
+💳 <strong>M-Pesa:</strong> 853 999 560 — Daryton******<br>
+💳 <strong>e-Mola:</strong> +258 87 388 7148 — Páscoa ********<br>
+<strong>5.</strong> Envia o comprovativo e o pedido entra em preparação.<br><br>
+<span class="note">⚠️ Confirma sempre o nome do destinatário antes de enviar o pagamento.</span>
+</div></section>
+<section><div class="title"><h2>🔎 Pedido personalizado</h2></div><div class="infoBox">Não encontraste o que procuras? Envia o produto que queres, tamanho, cor e orçamento.<br><br>
+<button class="primary" onclick="customOrder()">ENVIAR PEDIDO</button></div></section>
+<footer><strong>BLUE FACE STORE 💙</strong><br>STYLE • STREETWEAR • PREMIUM<br><br>🕢 Atendimento: 07:30–23:30 · Todos os dias<br>💳 M-Pesa • e-Mola</footer>
+<div class="drawer" id="drawer"><button class="close" onclick="closeCart()">×</button><h2>🛒 Carrinho</h2><div id="items"></div><div class="total" id="total"></div>
+<div class="form"><input id="name" placeholder="Nome completo"><input id="phone" placeholder="Número de telefone"><input id="address" placeholder="Morada / localização">
+<input id="house" placeholder="Cor da casa"><input id="gate" placeholder="Cor do portão"><textarea id="reference" placeholder="Ponto de referência (opcional)"></textarea>
+<select id="pay"><option value="M-Pesa">M-Pesa</option><option value="e-Mola">e-Mola</option></select>
+<button class="primary" style="width:100%;margin-top:8px" onclick="checkout()">ENCOMENDAR</button>
+<p class="note">Pagamento: M-Pesa 853 999 560 ou e-Mola +258 87 388 7148. Depois do pagamento, envia o comprovativo para a loja. Não aceitamos pagamento na entrega.</p></div></div>
+<script>
+const products=[["Sapatos", "Jordan 1–23", "Jordan", "1.200–3.000 MT", "40–44", "Várias cores", "👟", "jordan.jpg"], ["Sapatos", "Nike", "Nike", "1.300–3.900 MT", "40–44", "Várias cores", "👟", "nike.jpg"], ["Sapatos", "Puma", "Puma", "1.300–3.000 MT", "38–44", "Várias cores", "👟", "puma.jpg"], ["Sapatos", "Adidas", "Adidas", "1.450–3.800 MT", "37–44", "Várias cores", "👟", "adidas.jpg"], ["Sapatos", "Timberland", "Timberland", "4.000–5.300 MT", "40–44", "🤎 🤍 💙 💚 💛 🖤", "🥾", "timberland.jpg"], ["Sapatos", "Louis Vuitton", "LV", "2.000–3.900 MT", "40–44", "🖤 🤍 💙 🤎", "👟", "lv.jpg"], ["Chinelos", "Yeezy Slide / Adidas / Y-3", "Vários", "1.400 MT", "40–44", "Vários modelos", "🩴", "chinelos.jpg"], ["Roupas", "Modelos disponíveis", "Vários", "1.200–1.400 MT", "Jovens/adultos", "Várias cores", "👕", "roupa_1.webp"], ["Calções", "Calções", "Vários", "2.800–3.600 MT", "Acima de 10 anos", "Vários modelos", "🩳", "calcoes.jpg"], ["Ternos", "Ternos", "Vários", "3.800–6.000 MT", "Jovens/adultos", "Várias cores", "🤵", "terno_1.webp"], ["Fatos de treino", "Fatos de treino", "Nike", "4.000–6.000 MT", "Jovens/adultos", "Todas as cores", "🏃", "fato_treino.jpg"], ["Mochilas", "Mochilas", "Puma", "2.000 MT", "—", "Várias cores/modelos", "🎒", "mochila_1.jpeg"], ["Pastinhas", "Pastinhas", "Vários", "1.500–2.100 MT", "—", "Vários modelos", "👜", "pastinhas.jpg"], ["Bonés", "Bonés", "Vários", "500 MT", "—", "Vários modelos/cores", "🧢", "bone_1.jpg"], ["Chapéus", "Chapéus / Caps", "Vários", "700–800 MT", "—", "Vários modelos/cores", "👒", "chapeu.jpg"], ["Meias", "Meias", "Nike", "150 MT / 2 pares", "—", "Preto e branco", "🧦", "meias.jpg"], ["Grillz", "Grillz", "Vários", "2.000 MT", "—", "Sem personalização dos dentes", "💎", "grillz.jpg"], ["Colares", "Colares", "Vários", "1.800 MT", "—", "Várias cores/modelos", "📿", "colar.jpg"], ["Perfumes", "Perfumes", "Villa & Inuka", "1.200–1.500 MT", "—", "Várias fragrâncias/modelos", "🌸", "perfume_1.jpeg"]];
+let cart=[],selectedCat="";
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]));
+function iconFor(c){return {"Sapatos":"👟","Chinelos":"🩴","Roupas":"👕","Calções":"🩳","Ternos":"🤵","Fatos de treino":"🏃","Mochilas":"🎒","Pastinhas":"👜","Bonés":"🧢","Chapéus":"👒","Meias":"🧦","Grillz":"💎","Colares":"📿","Perfumes":"🌸"}[c]||"🛍️";}
+function renderCats(){const cats=[...new Set(products.map(p=>p[0]))];document.getElementById("cats").innerHTML='<div class="cat" onclick="selectCat(\\'\\')">🛍️<br>Todas</div>'+cats.map(c=>'<div class="cat" onclick="selectCat('+JSON.stringify(c)+')">'+iconFor(c)+'<br>'+esc(c)+'</div>').join("");}
+function selectCat(c){selectedCat=c;render();document.getElementById("produtos").scrollIntoView({behavior:"smooth"});}
+function render(){const q=((document.getElementById("search").value||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")).trim();const list=products.filter(p=>(!selectedCat||p[0]===selectedCat)&&p.slice(0,6).join(" ").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").includes(q));document.getElementById("resultCount").textContent=list.length+" itens";
+document.getElementById("products").innerHTML=list.map(p=>{const idx=products.indexOf(p),img=p[7]?'<img src="assets/'+p[7]+'" alt="'+esc(p[1])+'">':p[6];return '<article class="card"><div class="pic">'+img+'</div><div class="info"><div class="catName">'+esc(p[0])+'</div><h3>'+esc(p[1])+'</h3><div class="muted">'+esc(p[2])+'</div><div class="price">'+esc(p[3])+'</div><div class="meta">📏 '+esc(p[4])+'<br>🎨 '+esc(p[5])+'</div><button class="add" onclick="add('+idx+')">ADICIONAR AO CARRINHO</button></div></article>';}).join("")||'<div class="infoBox">Nenhum produto encontrado.</div>';}
+function add(i){cart.push(products[i]);updateCart();openCart();}
+function remove(i){cart.splice(i,1);updateCart();}
+function updateCart(){document.getElementById("count").textContent=cart.length;const items=document.getElementById("items");if(!cart.length){items.innerHTML='<p class="note">O carrinho está vazio.</p>';document.getElementById("total").textContent="";return;}items.innerHTML=cart.map((p,i)=>'<div class="item"><span>'+iconFor(p[0])+' '+esc(p[1])+'<br><small class="muted">'+esc(p[3])+'</small></span><button onclick="remove('+i+')" style="background:none;border:0;color:#ff758c;cursor:pointer">Remover</button></div>').join("");document.getElementById("total").textContent="Itens no carrinho: "+cart.length;}
+function openCart(){document.getElementById("drawer").classList.add("open")}function closeCart(){document.getElementById("drawer").classList.remove("open")}
+function checkout(){if(!cart.length)return alert("Adiciona pelo menos um produto ao carrinho.");const ids=["name","phone","address","house","gate"];if(ids.some(id=>!document.getElementById(id).value.trim()))return alert("Preenche nome, telefone, morada, cor da casa e cor do portão.");alert("Pedido recebido! 💙\\nPagamento escolhido: "+document.getElementById("pay").value+"\\n\\nA BLUE FACE STORE irá confirmar o pedido e enviar as instruções de pagamento.");}
+function customOrder(){alert("Pedido personalizado: envie uma foto do produto, tamanho, cor e orçamento. O WhatsApp da loja será ligado quando o número for definido.");}
+renderCats();render();updateCart();
+</script></body></html>
